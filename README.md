@@ -10,7 +10,7 @@ This repository is the implementation of GCL-KPConv upon a tweaked version of [P
 
 ## News
 
-20231127 - Code and pretrained weights are released [here](https://drive.google.com/file/d/1BHrKR2uR3a8y4XjnJIUgveSYsO-8cW4M/view?usp=sharing). We recommend unzipping it under the project directory.
+20231127 - Code and [pretrained weights](https://drive.google.com/file/d/1BHrKR2uR3a8y4XjnJIUgveSYsO-8cW4M/view?usp=sharing) are released. We recommend unzipping the weights in the project directory directly.
 
 20230713 - Our paper has been accepted by ICCV'23!
 
