@@ -125,11 +125,11 @@ cd cpp_wrappers; sh compile_wrappers.sh; cd ..
 
 ### Setting the distance between two LiDARs (registration difficulty during testing)
 
-As the major focus of this paper, we divide the PCL registration datasets  into different slices according to the distance $d$ between two LiDARs, both during testing and PCL training. Greater $d$ leads to a smaller overlap and more divergent point density, resulting in a higher registration difficulty. We denote range of $d$ with the parameter `--pair_min_dist` and `--pair_max_dist`, which can be found in `./scripts/train_{$method}_{$dataset}.sh`. For example, setting
+As the major focus of this paper, we divide the PCL registration datasets  into different slices according to the distance $d$ between two LiDARs, both during testing and PCL training. Greater $d$ leads to a smaller overlap and more divergent point density, resulting in a higher registration difficulty. We denote range of $d$ with the parameter `pair_min_dist` and `pair_max_dist`, which can be found in `./configs/{$MODE}/{$DATASET}.yaml`. For example, setting
 
 ```
---pair_min_dist 5 \
---pair_max_dist 20 \
+pair_min_dist = 5
+pair_max_dist = 20
 ```
 
 will set $d\in [5m,20m]$. In other words, for every pair of point clouds, the ground-truth euclidean distance betwen two corresponding LiDAR positions (i.e., the origins of the two specified point clouds) obeys a uniform distribution between 5m and 20m.
@@ -138,7 +138,7 @@ will set $d\in [5m,20m]$. In other words, for every pair of point clouds, the gr
 
 Notes:
 
-1. Remember to set `--use_old_pose` to true when using the nuScenes dataset.
+1. Remember to set `use_old_pose = True` when using the nuScenes dataset.
 2. When dealing with GCL training, there is no need to alter the `pair_min_dist, pair_max_dist, min_dist, max_dist` parameters. The former two parameters specifies the dataset split used to assess model performance during validation, which will not affect the model itself; The latter two are used to specify the minimum and maximum range to select neighborhood point clouds in GCL, which is our selected optimal parameter.
 
 To train GCL-KPConv on either dataset, run either of the following command inside conda environment `gcl-kpconv`:
